@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Multi-Page Web Starter",
   "repository": {
-    "type": "git",
+    "type": "git"
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
