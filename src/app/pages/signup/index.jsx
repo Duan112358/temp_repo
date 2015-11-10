@@ -5,6 +5,7 @@ import {
 import { Button } from 'WS'
 
 import "./index.scss";
+import data from './protocol.js';
 import logo from 'Img/proto_logo.png';
 import btmLogo from 'Img/proto_btmlogo.png';
 
@@ -39,6 +40,44 @@ import btmLogo from 'Img/proto_btmlogo.png';
 //         );
 //     }
 // });
+var Content = React.createClass({
+
+	getInitialState: function() {
+		return {data: data};
+	},
+
+	render: function() {
+		console.log(this.state.data)
+
+		var _arr = this.state.data.map(function(ele, i){
+			var _content;
+
+			if(ele.list){
+				_content = ele.list.map(function(item, i){
+					return (
+						<li key={i}>{item}</li>
+					)
+				})
+			}else{
+				_content = <p dangerouslySetInnerHTML={{__html: ele.content}}></p>
+			}
+
+			return (
+				<article key={i}>
+					<h1>{ele.title}</h1>
+					{_content}
+				</article>
+			)
+		})
+
+		return (
+			<ul>
+				{_arr}	
+			</ul>
+		)
+
+	}
+});
 
 var Header = React.createClass({
 
@@ -74,6 +113,7 @@ var Protocol = React.createClass({
         return (
             <div>
             	<Header />
+            	<Content />
                 <Footer />
             </div>
         );
