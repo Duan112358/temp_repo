@@ -62,18 +62,28 @@ var Content = React.createClass({
 				_content = <p dangerouslySetInnerHTML={{__html: ele.content}}></p>
 			}
 
-			return (
-				<article key={i}>
-					<h1>{ele.title}</h1>
-					{_content}
-				</article>
-			)
+			if(ele.list){
+				return (
+					<section key={i}>
+						<h1>{ele.title}</h1>
+						<ul>{_content}</ul>
+					</section>
+				);
+			} else {
+				return (
+					<section key={i}>
+						<h1>{ele.title}</h1>
+						{_content}
+					</section>
+				);
+			}
+			
 		})
 
 		return (
-			<ul>
+			<article>
 				{_arr}	
-			</ul>
+			</article>
 		)
 
 	}
