@@ -1,8 +1,22 @@
 body {
-    color: red;
-    background: black;
+    margin: 0;
+    padding: 0;
 }
 
-.test{
-    color: white;
+.header {
+	img:first-child {
+		width: 100pt;
+		height: 100pt;
+	}
+}
+
+.footer {
+	background: #7f7f7f;
+	padding: 60pt 0;
+	img {
+		display: block;
+		width: 250pt;
+		height: 125pt;
+		margin: 0 auto;
+	}
 }
