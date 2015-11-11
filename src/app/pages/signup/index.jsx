@@ -55,7 +55,7 @@ var Content = React.createClass({
 			if(ele.list){
 				_content = ele.list.map(function(item, i){
 					return (
-						<li key={i}>{item}</li>
+						<li key={i} dangerouslySetInnerHTML={{__html: item}}></li>
 					)
 				})
 			}else{
