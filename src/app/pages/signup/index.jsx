@@ -65,14 +65,14 @@ var Content = React.createClass({
 			if(ele.list){
 				return (
 					<section key={i}>
-						<h1>{ele.title}</h1>
+						<h2>{ele.title}</h2>
 						<ul>{_content}</ul>
 					</section>
 				);
 			} else {
 				return (
 					<section key={i}>
-						<h1>{ele.title}</h1>
+						<h2>{ele.title}</h2>
 						{_content}
 					</section>
 				);
@@ -81,7 +81,7 @@ var Content = React.createClass({
 		})
 
 		return (
-			<article>
+			<article className='content'>
 				{_arr}	
 			</article>
 		)
