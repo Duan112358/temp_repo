@@ -98,3 +98,45 @@ article.content {
 		margin: 0 auto;
 	}
 }
+
+@media (max-width: 1024px) {
+	.header .top, article.content{
+		padding-left: 30pt;
+		padding-right: 30pt;
+	}
+	.header .topinfo p {
+		padding: 20pt 30pt;
+	}
+	footer {
+		display: none;
+	}
+}
+
+@media (max-width: 681px) {
+	.header .top img:first-child {
+		width: 80pt;
+		height: 80pt;
+	}
+
+	.header .top h1 {
+		margin-left: 34px;
+	}
+}
+
+@media (max-width: 540px) {
+	.header .top img:first-child {
+		display: block;
+		width: 80pt;
+		height: 80pt;
+		margin: 0 auto;
+	}
+
+	.header .top h1 {
+		display: block;
+		margin-left: 0;
+		position: static;
+		font-size: 17pt;
+		text-align: center;
+		margin-top: 10pt;
+	}
+}
