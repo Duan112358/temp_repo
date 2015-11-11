@@ -9,37 +9,7 @@ import data from './protocol.js';
 import logo from 'Img/proto_logo.png';
 import btmLogo from 'Img/proto_btmlogo.png';
 
-// let SignUp = React.createClass({
 
-//     componentWillMount() {
-//     },
-
-//     componentDidMount(){
-
-//     },
-//     getInitialState(){
-//         return {
-//             loading: true,
-//             progress: null,
-//             user: null
-//         }
-//     },
-
-//     render() {
-
-//         return (
-//             <div>
-//                 <img src={exampleImg} />
-//                 hello world!!
-//                 <div className="test">
-//                     Hello test
-//                 </div>
-//                 <Button />
-//             </div>
-
-//         );
-//     }
-// });
 var Content = React.createClass({
 
 	getInitialState: function() {
@@ -77,12 +47,12 @@ var Content = React.createClass({
 					</section>
 				);
 			}
-			
+
 		})
 
 		return (
 			<article className='content'>
-				{_arr}	
+				{_arr}
 			</article>
 		)
 
@@ -128,6 +98,6 @@ var Protocol = React.createClass({
             </div>
         );
     }
-}); 
+});
 
 React.render(<Protocol />, document.body);

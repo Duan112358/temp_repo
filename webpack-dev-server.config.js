@@ -22,8 +22,10 @@ var config = {
      * The key is the chunk name. The value can be a string or an array.
      */
     entry: {
-        signup: _p('signup'),
+        agreement: _p('agreement'),
+        about: _p('about'),
         sharing: _p('sharing'),
+        //signup: _p('signup'),
     },
 
     /**
@@ -101,7 +103,8 @@ var config = {
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css?sourceMap", "sass"] //"style!css!sass"
+                loaders: ["style", "css", "sass"]   //"style!css!sass"
+                //loaders: ["style", "css?sourceMap", "sass"]  // sourceMap effect rendering
             },
             {
                 test: /\.(png|jpg|svg)$/,
