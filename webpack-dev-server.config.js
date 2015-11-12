@@ -9,6 +9,9 @@ var CONF = {
     DIST: path.resolve(__dirname, 'build')
 }
 
+/**
+ * resolve pages path
+ */
 function _p(page){
     return path.join(__dirname, CONF.BASE, 'pages/' + page + '/');
 }
@@ -33,7 +36,7 @@ var config = {
      * doc: http://webpack.github.io/docs/configuration.html#output
      */
     output: {
-        path: CONF.DIST,    //Path of output file
+        path: CONF.DIST,            //Path of output file
         filename: '[name].js'
     },
 
@@ -108,7 +111,7 @@ var config = {
             },
             {
                 test: /\.(png|jpg|svg)$/,
-                loader: 'url?limit=20480' //< 20k, otherwise file-loader is used auto
+                loader: 'url?limit=20480&name=assets/[name]-[hash:8].[ext]' //< 20k, otherwise file-loader is used auto
             }
         ]
     },
