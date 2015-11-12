@@ -1,8 +1,68 @@
+// 页面最大宽度
+$pageWidth: 1000px;
+
 body {
-    color: blue;
-    background: white;
+    margin: 0;
+    padding: 0;
+    font-family: arial, 'Microsoft Yahei', '微软雅黑';
+    -webkit-font-smoothing: antialiased;
 }
 
-.test{
-    color: red;
+p {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	padding: 40pt 0;
+
+	.logo {
+		width: 188px;
+		height: 291px;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.intro {
+	article.intro_article {
+		max-width: 540px;
+		text-align: center;
+		margin: 0 auto;
+		color: #808184;
+		line-height: 1.5em;
+		padding-bottom: 60pt;
+	}
+}
+
+.footer {
+	background: #7f7f7f;
+	padding: 60pt 0;
+
+	img {
+		display: block;
+		width: 250pt;
+		height: 125pt;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 680px) {
+	footer {
+		display: none;
+	}
+}
+
+@media (max-width: 580px) {
+	.intro {
+		article.intro_article {
+			padding-left: 30pt;
+			padding-right: 30pt;
+		}
+	}
+
+	.header .logo {
+	    width: 138px;
+	    height: 211px;
+	}
 }
