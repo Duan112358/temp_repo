@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
-    "build": "webpack --config webpack-production.config.js --progress --colors"
+    "build": "webpack --config webpack-product.config.js --progress --colors"
   },
   "devDependencies": {
     "babel-core": "^5.8.21",
@@ -31,8 +31,6 @@
   "dependencies": {
     "blueimp-md5": "^1.1.1",
     "fetch": "^0.3.6",
-    "material-design-icons": "^2.0.0",
-    "material-ui": "^0.11.1",
     "react": ">=0.13",
     "react-router": "^0.13.0",
     "react-tap-event-plugin": "^0.1.3",
