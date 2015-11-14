@@ -6,7 +6,7 @@ var TransferWebpackPlugin = require('transfer-webpack-plugin');
 var CONF = {
     HOST: 3002,
     BASE: '/src/app/',
-    STATIC: 'static.wesafari.cn',
+    STATIC: 'http://static.wesafari.cn',
     DIST: path.resolve(__dirname, 'build')
 }
 
