@@ -5,8 +5,8 @@ var TransferWebpackPlugin = require('transfer-webpack-plugin');
 // Config Here.
 var CONF = {
     HOST: 3002,
-    BASE: '/src/app/',
-    STATIC: 'http://static.wesafari.cn',
+    BASE: '/src/',
+    STATIC: 'http://static.wesafari.cn/',
     DIST: path.resolve(__dirname, 'build')
 }
 
@@ -39,7 +39,7 @@ var config = {
     output: {
         path: CONF.DIST,            //Path of output file
         publicPath: CONF.STATIC,    //Path for public assets
-        filename: '[name].js'
+        filename: '[name].[hash:8].js'
     },
 
     /**
@@ -78,6 +78,8 @@ var config = {
         }),
         //Allows error warnings but does not stop compiling. Will remove when eslint is added
         new webpack.NoErrorsPlugin(),
+        // Split vendors
+        new webpack.optimize.CommonsChunkPlugin("vendor", "js/vendor.[hash:8].js"),
         //Transfer Files
         new TransferWebpackPlugin([
           {from: 'www'}

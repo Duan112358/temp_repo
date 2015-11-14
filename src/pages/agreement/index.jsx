@@ -1,8 +1,4 @@
 import React from 'react';
-import {
-    UserModel
-} from '../../dataModel';
-import { Button } from 'WS'
 
 import "./index.scss";
 import data from './protocol.js';

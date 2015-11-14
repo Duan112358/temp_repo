@@ -5,7 +5,8 @@ var TransferWebpackPlugin = require('transfer-webpack-plugin');
 // Config Here.
 var CONF = {
     HOST: 3002,
-    BASE: '/src/app/',
+    BASE: '/src/',
+    STATIC: '/',
     DIST: path.resolve(__dirname, 'build')
 }
 
@@ -25,6 +26,7 @@ var config = {
      * The key is the chunk name. The value can be a string or an array.
      */
     entry: {
+        vendor: ['react'],
         agreement: _p('agreement'),
         about: _p('about'),
         sharing: _p('sharing'),
@@ -37,6 +39,7 @@ var config = {
      */
     output: {
         path: CONF.DIST,            //Path of output file
+        publicPath: CONF.STATIC,    //Path for public assets
         filename: '[name].js'
     },
 
@@ -86,7 +89,9 @@ var config = {
         new webpack.HotModuleReplacementPlugin(),
         //Allows error warnings but does not stop compiling. Will remove when eslint is added
         new webpack.NoErrorsPlugin(),
-        //Moves files
+        // Split vendors
+        new webpack.optimize.CommonsChunkPlugin("vendor", "js/vendor.js"),
+        //Moves HTML to base
         new TransferWebpackPlugin([
           {from: 'www'}
         ], path.resolve(__dirname, "src"))
