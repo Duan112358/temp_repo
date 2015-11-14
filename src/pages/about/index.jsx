@@ -75,4 +75,4 @@ let About = React.createClass({
     }
 });
 
-React.render(<About />, document.body);
+React.render(<About />, document.getElementById("app"));

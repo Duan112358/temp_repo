@@ -1,13 +1,18 @@
 var webpack = require('webpack');
 var path = require('path');
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Config Here.
 var CONF = {
     HOST: 3002,
     BASE: '/src/',
-    STATIC: 'http://static.wesafari.cn/',
-    DIST: path.resolve(__dirname, 'build')
+    // Master
+    //STATIC: 'http://static.wesafari.cn/',
+    // Pre
+    STATIC: '',
+    DIST: path.resolve(__dirname, 'build'),
+    TEMP: path.join(__dirname, '/src/', 'www/page.template.html')
 }
 
 /**
@@ -26,6 +31,7 @@ var config = {
      * The key is the chunk name. The value can be a string or an array.
      */
     entry: {
+        vendor: ['react'],
         agreement: _p('agreement'),
         about: _p('about'),
         sharing: _p('sharing'),
@@ -83,7 +89,20 @@ var config = {
         //Transfer Files
         new TransferWebpackPlugin([
           {from: 'www'}
-        ], path.resolve(__dirname,"src"))
+        ], path.resolve(__dirname,"src")),
+        // Generate HTML
+        new HtmlWebpackPlugin({
+            title: '关于我们',
+            filename: 'about.html',
+            chunks: ['about', 'vendor'],
+            template: CONF.TEMP
+        }),
+        new HtmlWebpackPlugin({
+            title: '用户协议',
+            filename: 'agreement.html',
+            chunks: ['agreement', 'vendor'],
+            template: CONF.TEMP
+        })
     ],
 
     /**

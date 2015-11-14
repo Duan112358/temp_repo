@@ -4,7 +4,7 @@ $pageWidth: 1000px;
 body {
     margin: 0;
     padding: 0;
-    font-family: arial, 'Microsoft Yahei', '微软雅黑';
+    font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -20,7 +20,7 @@ p {
 		margin: 30pt auto;
 		padding: 0 50pt;
 		max-width: $pageWidth;
-		
+
 		img:first-child {
 			width: 100pt;
 			height: 100pt;

@@ -1,13 +1,15 @@
 var webpack = require('webpack');
 var path = require('path');
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Config Here.
 var CONF = {
     HOST: 3002,
     BASE: '/src/',
-    STATIC: '/',
-    DIST: path.resolve(__dirname, 'build')
+    STATIC: '',
+    DIST: path.resolve(__dirname, 'build'),
+    TEMP: path.join(__dirname, '/src/', 'www/page.template.html')
 }
 
 /**
@@ -64,6 +66,7 @@ var config = {
     devServer:{
         contentBase: '',    //Relative directory for base of server
         hot: true,          //Live-reload
+        host: process.env.HOST || '0.0.0.0',
         inline: true,
         port: CONF.HOST,    //Port Number
         stats: {
@@ -94,7 +97,26 @@ var config = {
         //Moves HTML to base
         new TransferWebpackPlugin([
           {from: 'www'}
-        ], path.resolve(__dirname, "src"))
+        ], path.resolve(__dirname, "src")),
+        // Generate HTML
+        new HtmlWebpackPlugin({
+            title: '关于我们',
+            filename: 'about.html',
+            chunks: ['about', 'vendor'],
+            template: CONF.TEMP
+        }),
+        new HtmlWebpackPlugin({
+            title: '用户协议',
+            filename: 'agreement.html',
+            chunks: ['agreement', 'vendor'],
+            template: CONF.TEMP
+        }),
+        // new HtmlWebpackPlugin({
+        //     title: '邀请码注册',
+        //     filename: 'signup.html',
+        //     chunks: ['signup', 'vendor'],
+        //     template: CONF.TEMP
+        // })
     ],
 
     /**
