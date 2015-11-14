@@ -4,6 +4,7 @@ var fs = require('fs');
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 // Config Here.
 var CONF = {
     HOST: 3002,
@@ -70,6 +71,12 @@ var config = {
     },
 
     /**
+     * Devtool
+     * doc: http://webpack.github.io/docs/configuration.html#devtool
+     */
+    devtool: 'source-map',
+
+    /**
      * Server Configuration options
      * doc: http://webpack.github.io/docs/webpack-dev-server.html
      */
@@ -85,13 +92,7 @@ var config = {
             exclude: [/node_modules[\\\/]/]
         }
     },
-
-    /**
-     * Devtool
-     * doc: http://webpack.github.io/docs/configuration.html#devtool
-     */
-    devtool: 'source-map',
-
+    
     /**
      * Plugin
      * doc: http://webpack.github.io/docs/using-plugins.html

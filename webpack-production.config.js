@@ -3,17 +3,13 @@ var path = require('path');
 var fs = require('fs');
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-
+var ENV = process.env.MODE == 'pre' ? 'pre' : 'build';
 
 // Config Here.
 var CONF = {
     HOST: 3002,
     BASE: '/src/',
-    // Master
-    //STATIC: 'http://static.wesafari.cn/',
-    // Pre
-    STATIC: '',
+    STATIC: (ENV == 'build') ? 'http://static.wesafari.cn/' : '',
     DIST: path.resolve(__dirname, 'build'),
     TEMP: path.join(__dirname, '/src/', 'www/page.template.html'),
     LOADING: _toURI('./src/images/loading@2x.gif')
