@@ -1,7 +1,10 @@
 var webpack = require('webpack');
 var path = require('path');
+var fs = require('fs');
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+
 
 // Config Here.
 var CONF = {
@@ -12,7 +15,16 @@ var CONF = {
     // Pre
     STATIC: '',
     DIST: path.resolve(__dirname, 'build'),
-    TEMP: path.join(__dirname, '/src/', 'www/page.template.html')
+    TEMP: path.join(__dirname, '/src/', 'www/page.template.html'),
+    LOADING: _toURI('./src/images/loading@2x.gif')
+}
+
+/**
+ * get DataURI of Images.
+ */
+function _toURI(img){
+    var imgBuffer = fs.readFileSync(img);
+    return "data:image/gif;base64," + imgBuffer.toString("base64");
 }
 
 /**
@@ -21,6 +33,7 @@ var CONF = {
 function _p(page){
     return path.join(__dirname, CONF.BASE, 'pages/' + page + '/');
 }
+
 
 var config = {
     /**
@@ -95,13 +108,22 @@ var config = {
             title: '关于我们',
             filename: 'about.html',
             chunks: ['about', 'vendor'],
-            template: CONF.TEMP
+            template: CONF.TEMP,
+            loadingURI: CONF.LOADING
         }),
         new HtmlWebpackPlugin({
             title: '用户协议',
             filename: 'agreement.html',
             chunks: ['agreement', 'vendor'],
-            template: CONF.TEMP
+            template: CONF.TEMP,
+            loadingURI: CONF.LOADING
+        }),
+        new HtmlWebpackPlugin({
+            title: 'TEST',
+            filename: 'test.html',
+            chunks: ['vendor'],
+            template: CONF.TEMP,
+            loadingURI: CONF.LOADING
         })
     ],
 

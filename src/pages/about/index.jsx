@@ -4,8 +4,8 @@ import btmLogo from 'Img/proto_btmlogo.png';
 import aboutLogo from 'Img/about_logo.png';
 import data from './content.js';
 
-let Intro = React.createClass({
 
+let Intro = React.createClass({
     render() {
         var _data = this.props.data;
         var _results = _data.map(function(ele, i){
@@ -31,7 +31,6 @@ let Intro = React.createClass({
 });
 
 let Logo = React.createClass({
-
     render() {
         return (
             <header className='header'>
@@ -42,7 +41,6 @@ let Logo = React.createClass({
 });
 
 let Footer = React.createClass({
-
     render() {
         return (
             <footer className='footer'>
@@ -51,6 +49,7 @@ let Footer = React.createClass({
         );
     }
 });
+
 
 let About = React.createClass({
 
