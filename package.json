@@ -36,6 +36,7 @@
     "fetch": "^0.3.6",
     "react": ">=0.13",
     "react-router": "^0.13.0",
+    "react-router-component": "^0.27.2",
     "react-tap-event-plugin": "^0.1.3",
     "reqwest": "^1.1.6"
   }
