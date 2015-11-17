@@ -22,8 +22,8 @@ let Intro = React.createClass({
         });
 
         return (
-            <section className='intro'>
-                <article className='intro_article'>
+            <section className={styles.intro}>
+                <article className={styles.intro_article}>
                     {_results}
                 </article>
             </section>
@@ -34,8 +34,8 @@ let Intro = React.createClass({
 let Logo = React.createClass({
     render() {
         return (
-            <header className='header'>
-                <img className='logo' src={aboutLogo} />
+            <header className={styles.header}>
+                <img className={styles.logo} src={aboutLogo} />
             </header>
         );
     }
@@ -59,12 +59,10 @@ let About = React.createClass({
 
     componentDidMount() {
         console.log('did mount');
-        if(window.location.hash === '#css'){
-            require.ensure([], () => {
-                let add = require('./add.scss');
-                console.log(add);
-            })
-        }
+        require.ensure([], () => {
+            let add = require('./add.scss');
+            console.log(add);
+        })
         let Button = require("WS/button");
         console.log(<Button />);
     },
@@ -83,4 +81,4 @@ let About = React.createClass({
     }
 });
 
-React.render(<About />, document.getElementById("app"));
+export default About

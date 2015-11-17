@@ -43,6 +43,7 @@ var config = {
         agreement: _p('agreement'),
         about: _p('about'),
         sharing: _p('sharing'),
+        home: _p('')
         //signup: _p('signup'),
     },
 
@@ -114,6 +115,13 @@ var config = {
             title: '关于我们',
             filename: 'about.html',
             chunks: ['about', 'vendor'],
+            template: CONF.TEMP,
+            loadingURI: CONF.LOADING
+        }),
+        new HtmlWebpackPlugin({
+            title: '关于我们',
+            filename: 'index.html',
+            chunks: ['home', 'vendor'],
             template: CONF.TEMP,
             loadingURI: CONF.LOADING
         }),

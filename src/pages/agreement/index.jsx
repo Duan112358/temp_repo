@@ -96,4 +96,4 @@ var Protocol = React.createClass({
     }
 });
 
-React.render(<Protocol />, document.getElementById("app"));
+export default Protocol;

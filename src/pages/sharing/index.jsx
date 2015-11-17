@@ -30,4 +30,4 @@ let Sharing = React.createClass({
     }
 });
 
-React.render(<Sharing/>, document.body);
+export default Sharing;
