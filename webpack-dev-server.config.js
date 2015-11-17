@@ -92,7 +92,7 @@ var config = {
             exclude: [/node_modules[\\\/]/]
         }
     },
-    
+
     /**
      * Plugin
      * doc: http://webpack.github.io/docs/using-plugins.html
@@ -153,7 +153,7 @@ var config = {
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css", "sass"]   //"style!css!sass"
+                loaders: ["style", "css?modules&localIdentName=[hash:base64:5]", "sass"]   //"style!css!sass"
                 //loaders: ["style", "css?sourceMap", "sass"]  // sourceMap effect rendering
             },
             {

@@ -1,4 +1,7 @@
 import React from 'react';
+import styles from './index.scss';
+
+console.log(styles);
 
 let Button = React.createClass({
 
@@ -10,9 +13,10 @@ let Button = React.createClass({
     },
 
     render() {
-
         return (
-            <button> I am a button component!! </button>
+            <button className={styles.Button}>
+                I am a button component!!
+            </button>
         );
     }
 });

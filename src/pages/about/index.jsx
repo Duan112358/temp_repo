@@ -1,9 +1,10 @@
 import React from 'react';
-import "./index.scss";
+import styles from "./index.scss";
 import btmLogo from 'Img/proto_btmlogo.png';
 import aboutLogo from 'Img/about_logo.png';
 import data from './content.js';
 
+console.log(styles);
 
 let Intro = React.createClass({
     render() {
@@ -57,7 +58,15 @@ let About = React.createClass({
     },
 
     componentDidMount() {
-
+        console.log('did mount');
+        if(window.location.hash === '#css'){
+            require.ensure([], () => {
+                let add = require('./add.scss');
+                console.log(add);
+            })
+        }
+        let Button = require("WS/button");
+        console.log(<Button />);
     },
     getInitialState() {
         return {};
